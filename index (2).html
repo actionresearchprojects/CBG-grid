@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2x2 Image Grid</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Ubuntu', sans-serif;
+      height: 100%;
+      width: 100%;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+      height: 100%;
+      width: 100%;
+      padding: 10px;
+    }
+
+    .grid a {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+
+    .grid a:hover img {
+      opacity: 0.3;
+    }
+
+    .overlay-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 1.5em;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .grid a:hover .overlay-text {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <a href="https://actionresearchprojects.framer.website/pattern-guide-1">
+      <img src="https://via.placeholder.com/400x300" alt="Image 1">
+      <div class="overlay-text">Demo</div>
+    </a>
+    <a href="https://actionresearchprojects.framer.website/pattern-guide-1">
+      <img src="https://via.placeholder.com/400x300" alt="Image 2">
+      <div class="overlay-text">Demo</div>
+    </a>
+    <a href="https://actionresearchprojects.framer.website/pattern-guide-1">
+      <img src="https://via.placeholder.com/400x300" alt="Image 3">
+      <div class="overlay-text">Demo</div>
+    </a>
+    <a href="https://actionresearchprojects.framer.website/pattern-guide-1">
+      <img src="https://via.placeholder.com/400x300" alt="Image 4">
+      <div class="overlay-text">Demo</div>
+    </a>
+  </div>
+</body>
+</html>
