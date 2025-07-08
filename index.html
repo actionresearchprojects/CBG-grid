@@ -38,7 +38,11 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .grid a:hover video {
+    transform: scale(1.05);
   }
 
   .grid a .overlay {
@@ -72,18 +76,28 @@
 <div class="grid">
   <a href="https://actionresearchprojects.framer.website/pattern-guide-1" target="_top">
     <video src="icons/placeholder.webm" autoplay loop muted playsinline></video>
-    <div class="overlay"><div class="overlay-text">Demo</div></div>
+    <div class="overlay"><div class="overlay-text">Placeholder</div></div>
   </a>
   <a href="https://actionresearchprojects.framer.website/pattern-guide-1" target="_top">
     <video src="icons/placeholder.webm" autoplay loop muted playsinline></video>
-    <div class="overlay"><div class="overlay-text">Demo</div></div>
+    <div class="overlay"><div class="overlay-text">Placeholder</div></div>
   </a>
   <a href="https://actionresearchprojects.framer.website/pattern-guide-1" target="_top">
     <video src="icons/placeholder.webm" autoplay loop muted playsinline></video>
-    <div class="overlay"><div class="overlay-text">Demo</div></div>
+    <div class="overlay"><div class="overlay-text">Placeholder</div></div>
   </a>
   <a href="https://actionresearchprojects.framer.website/pattern-guide-1" target="_top">
     <video src="icons/placeholder.webm" autoplay loop muted playsinline></video>
-    <div class="overlay"><div class="overlay-text">Demo</div></div>
+    <div class="overlay"><div class="overlay-text">Placeholder</div></div>
   </a>
 </div>
+
+<script>
+  document.querySelectorAll("video").forEach(video => {
+    video.addEventListener("loadedmetadata", () => {
+      if (video.duration > 20) {
+        video.currentTime = 20;
+      }
+    });
+  });
+</script>
