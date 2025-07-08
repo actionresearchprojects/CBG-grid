@@ -91,13 +91,3 @@
     <div class="overlay"><div class="overlay-text">Placeholder</div></div>
   </a>
 </div>
-
-<script>
-  document.querySelectorAll("video").forEach(video => {
-    video.addEventListener("loadedmetadata", () => {
-      if (video.duration > 20) {
-        video.currentTime = 20;
-      }
-    });
-  });
-</script>
