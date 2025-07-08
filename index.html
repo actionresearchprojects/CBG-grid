@@ -72,6 +72,21 @@
   .grid a:hover .overlay-text {
     opacity: 1;
   }
+
+  @media (max-width: 600px) {
+    .grid {
+      gap: 4px;
+      padding: 4px;
+    }
+
+    .grid a {
+      border-width: 0.5px;
+    }
+
+    .grid a .overlay-text {
+      font-size: 1.2em;
+    }
+  }
 </style>
 
 <div class="grid">
