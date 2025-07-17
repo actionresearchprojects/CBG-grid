@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
@@ -15,6 +15,7 @@
       height: 100%;
       width: 100%;
       font-family: 'Ubuntu', sans-serif;
+      background: #fff;
     }
 
     .grid {
@@ -24,20 +25,19 @@
       gap: 10px;
       height: 100%;
       width: 100%;
-      margin: 0;
     }
 
     .grid a {
       position: relative;
+      transform: translateZ(0); /* Force new stacking context */
       display: block;
       width: 100%;
       height: 100%;
       text-decoration: none;
-      color: inherit;
-      cursor: pointer;
       overflow: hidden;
       border: 1px solid black;
-      background-color: #000;
+      background: #000;
+      z-index: 0;
     }
 
     .grid a video {
@@ -45,38 +45,41 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     .grid a:hover video {
       transform: scale(1.05);
     }
 
-    .grid a .overlay {
+    .overlay {
       position: absolute;
       inset: 0;
       background-color: rgba(0, 0, 0, 0);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       transition: background-color 0.3s ease;
-      z-index: 1;
+      z-index: 3;
       pointer-events: none;
-    }
-
-    .grid a .overlay-text {
-      color: white;
-      font-size: 2em;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      will-change: background-color;
     }
 
     .grid a:hover .overlay {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.25) !important;
     }
 
-    .grid a:hover .overlay-text {
-      opacity: 1;
+    .label {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: 4;
+      color: black;
+      font-size: clamp(1rem, 2.5vw, 2rem);
+      font-weight: bold;
+      text-shadow:
+        -1px -1px 0 white,
+         1px -1px 0 white,
+        -1px  1px 0 white,
+         1px  1px 0 white;
+      pointer-events: none;
     }
 
     @media (max-width: 600px) {
@@ -88,8 +91,8 @@
         border-width: 0.5px;
       }
 
-      .grid a .overlay-text {
-        font-size: 1.2em;
+      .label {
+        font-size: clamp(0.8rem, 4vw, 1.2rem);
       }
     }
   </style>
@@ -98,31 +101,31 @@
   <div class="grid">
     <a href="https://actionresearchprojects.framer.website/cool-buildings-guide/pattern-guide-1" target="_top">
       <video autoplay loop muted playsinline poster="icons/static/placeholder.jpg">
-        <source src="icons/video/placeholder.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        <source src="icons/video/placeholder.mp4" type="video/mp4" />
       </video>
-      <div class="overlay"><div class="overlay-text">Placeholder</div></div>
+      <div class="overlay"></div>
+      <div class="label">Pattern Guide 1</div>
     </a>
     <a href="https://actionresearchprojects.framer.website/cool-buildings-guide/pattern-guide-1" target="_top">
       <video autoplay loop muted playsinline poster="icons/static/placeholder.jpg">
-        <source src="icons/video/placeholder.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        <source src="icons/video/placeholder.mp4" type="video/mp4" />
       </video>
-      <div class="overlay"><div class="overlay-text">Placeholder</div></div>
+      <div class="overlay"></div>
+      <div class="label">Pattern Guide 1</div>
     </a>
     <a href="https://actionresearchprojects.framer.website/cool-buildings-guide/pattern-guide-1" target="_top">
       <video autoplay loop muted playsinline poster="icons/static/placeholder.jpg">
-        <source src="icons/video/placeholder.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        <source src="icons/video/placeholder.mp4" type="video/mp4" />
       </video>
-      <div class="overlay"><div class="overlay-text">Placeholder</div></div>
+      <div class="overlay"></div>
+      <div class="label">Pattern Guide 1</div>
     </a>
     <a href="https://actionresearchprojects.framer.website/cool-buildings-guide/pattern-guide-1" target="_top">
       <video autoplay loop muted playsinline poster="icons/static/placeholder.jpg">
-        <source src="icons/video/placeholder.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        <source src="icons/video/placeholder.mp4" type="video/mp4" />
       </video>
-      <div class="overlay"><div class="overlay-text">Placeholder</div></div>
+      <div class="overlay"></div>
+      <div class="label">Pattern Guide 1</div>
     </a>
   </div>
 </body>
