@@ -20,8 +20,8 @@
 
     .grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
       gap: 10px;
       height: 100%;
       width: 100%;
@@ -29,7 +29,6 @@
 
     .grid a {
       position: relative;
-      transform: translateZ(0); /* Force new stacking context */
       display: block;
       width: 100%;
       height: 100%;
@@ -37,10 +36,9 @@
       overflow: hidden;
       border: 1px solid black;
       background: #000;
-      z-index: 0;
     }
 
-    .grid a video {
+    .grid a img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -48,7 +46,7 @@
       transition: transform 0.3s ease;
     }
 
-    .grid a:hover video {
+    .grid a:hover img {
       transform: scale(1.05);
     }
 
@@ -57,20 +55,17 @@
       inset: 0;
       background-color: rgba(0, 0, 0, 0);
       transition: background-color 0.3s ease;
-      z-index: 3;
       pointer-events: none;
-      will-change: background-color;
     }
 
     .grid a:hover .overlay {
-      background-color: rgba(0, 0, 0, 0.25) !important;
+      background-color: rgba(0, 0, 0, 0.25);
     }
 
     .label {
       position: absolute;
       bottom: 10px;
       left: 10px;
-      z-index: 4;
       color: black;
       font-size: clamp(1rem, 2.5vw, 2rem);
       font-weight: bold;
@@ -85,6 +80,8 @@
     @media (max-width: 600px) {
       .grid {
         gap: 4px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
       }
 
       .grid a {
@@ -99,33 +96,52 @@
 </head>
 <body>
   <div class="grid">
-    <a href="https://actionresearchprojects.net/cool-buildings-guide/houseinawclimate" target="_top">
-      <video autoplay loop muted playsinline poster="icons/static/houseinawclimate.jpg">
-        <source src="icons/video/houseinawclimate.mp4" type="video/mp4" />
-      </video>
+    <a href="https://www.actionresearchprojects.net/cool-buildings-guide/avoiding-heat" target="_top">
+      <img src="icons/houseinawclimate.jpg" alt="" />
       <div class="overlay"></div>
-      <div class="label">House in Tropical Savannah Climate: Aw</div>
+      <div class="label">Avoiding Heat</div>
     </a>
-    <a href="https://actionresearchprojects.net/cool-buildings-guide/pattern-guide-1" target="_top">
-      <video autoplay loop muted playsinline poster="icons/static/placeholder.jpg">
-        <source src="icons/video/placeholder.mp4" type="video/mp4" />
-      </video>
+
+    <a href="https://www.actionresearchprojects.net/cool-buildings-guide/keeping-heat-out" target="_top">
+      <img src="icons/houseinawclimate.jpg" alt="" />
       <div class="overlay"></div>
-      <div class="label">Pattern Guide 1</div>
+      <div class="label">Keeping Heat Out</div>
     </a>
-    <a href="https://actionresearchprojects.net/cool-buildings-guide/pattern-guide-1" target="_top">
-      <video autoplay loop muted playsinline poster="icons/static/placeholder.jpg">
-        <source src="icons/video/placeholder.mp4" type="video/mp4" />
-      </video>
+
+    <a href="https://www.actionresearchprojects.net/cool-buildings-guide/air-movement" target="_top">
+      <img src="icons/houseinawclimate.jpg" alt="" />
       <div class="overlay"></div>
-      <div class="label">Pattern Guide 1</div>
+      <div class="label">Air Movement</div>
     </a>
-    <a href="https://actionresearchprojects.net/cool-buildings-guide/pattern-guide-1" target="_top">
-      <video autoplay loop muted playsinline poster="icons/static/placeholder.jpg">
-        <source src="icons/video/placeholder.mp4" type="video/mp4" />
-      </video>
+
+    <a href="https://www.actionresearchprojects.net/cool-buildings-guide/cooling-the-air" target="_top">
+      <img src="icons/houseinawclimate.jpg" alt="" />
       <div class="overlay"></div>
-      <div class="label">Pattern Guide 1</div>
+      <div class="label">Cooling the Air</div>
+    </a>
+
+    <a href="https://www.actionresearchprojects.net/cool-buildings-guide/drying-the-air" target="_top">
+      <img src="icons/houseinawclimate.jpg" alt="" />
+      <div class="overlay"></div>
+      <div class="label">Drying the Air</div>
+    </a>
+
+    <a href="https://www.actionresearchprojects.net/cool-buildings-guide/thermal-mass" target="_top">
+      <img src="icons/houseinawclimate.jpg" alt="" />
+      <div class="overlay"></div>
+      <div class="label">Thermal Mass</div>
+    </a>
+
+    <a href="https://www.actionresearchprojects.net/cool-buildings-guide/practical-constraints" target="_top">
+      <img src="icons/houseinawclimate.jpg" alt="" />
+      <div class="overlay"></div>
+      <div class="label">Practical Constraints</div>
+    </a>
+
+    <a href="https://www.actionresearchprojects.net/cool-buildings-guide/environmental-performance" target="_top">
+      <img src="icons/houseinawclimate.jpg" alt="" />
+      <div class="overlay"></div>
+      <div class="label">Environmental Performance</div>
     </a>
   </div>
 </body>
